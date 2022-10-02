@@ -8476,7 +8476,7 @@ addcmd('tweengoto',{'tgoto','tto','tweento'},function(args, speaker)
 				speaker.Character:FindFirstChildOfClass('Humanoid').Sit = false
 				wait(.1)
 			end
-			TweenService:Create(getRoot(speaker.Character), TweenInfo.new(tweenSpeed, Enum.EasingStyle.Linear), {CFrame = getRoot(Players[v].Character).CFrame}):Play()
+			TweenService:Create(getRoot(speaker.Character), TweenInfo.new(tweenSpeed, Enum.EasingStyle.Linear), {CFrame = getRoot(Players[v].Character).CFrame + Vector3.new(3,1,0)}):Play()
 		end
 	end
 	execCmd('breakvelocity')
@@ -8503,7 +8503,7 @@ addcmd('pulsetp',{'ptp'},function(args, speaker)
 				speaker.Character:FindFirstChildOfClass('Humanoid').Sit = false
 				wait(.1)
 			end
-			getRoot(speaker.Character).CFrame = getRoot(Players[v].Character).CFrame
+			getRoot(speaker.Character).CFrame = getRoot(Players[v].Character).CFrame + Vector3.new(3,1,0)
 			wait(seconds)
 			getRoot(speaker.Character).CFrame = startPos
 		end
@@ -8555,7 +8555,7 @@ addcmd('clientbring',{'cbring'},function(args, speaker)
 				Players[v].Character:FindFirstChildOfClass('Humanoid').Sit = false
 			end
 			wait()
-			getRoot(Players[v].Character).CFrame = getRoot(speaker.Character).CFrame
+			getRoot(Players[v].Character).CFrame = getRoot(speaker.Character).CFrame + Vector3.new(3,1,0)
 		end
 	end
 end)
@@ -8582,7 +8582,7 @@ addcmd('loopbring',{},function(args, speaker)
 						if Players:FindFirstChild(v) then
 							pchar = Players[v].Character
 							if pchar~= nil and Players[v].Character ~= nil and getRoot(pchar) and speaker.Character ~= nil and getRoot(speaker.Character) then
-								getRoot(pchar).CFrame = getRoot(speaker.Character).CFrame
+								getRoot(pchar).CFrame = getRoot(speaker.Character).CFrame + Vector3.new(distance,1,0)
 							end
 							wait(lDelay)
 						else 
@@ -9957,7 +9957,7 @@ addcmd('loopgoto',{},function(args, speaker)
 			wait(.1)
 		end
 		loopgoto = Players[v]
-		local distance = 3
+		local distance = 0
 		if args[2] and isNumber(args[2]) then
 			distance = args[2]
 		end
@@ -9968,7 +9968,7 @@ addcmd('loopgoto',{},function(args, speaker)
 		repeat
 			if Players:FindFirstChild(v) then
 				if Players[v].Character ~= nil then
-					getRoot(speaker.Character).CFrame = getRoot(Players[v].Character).CFrame
+					getRoot(speaker.Character).CFrame = getRoot(Players[v].Character).CFrame + Vector3.new(distance,0,0)
 				end
 				wait(lDelay)
 			else
