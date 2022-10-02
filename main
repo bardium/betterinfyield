@@ -8569,7 +8569,7 @@ addcmd('loopbring',{},function(args, speaker)
 				table.insert(bringT, Players[v].Name)
 				local plrName = Players[v].Name
 				local pchar=Players[v].Character
-				local distance = 0
+				local distance = 3
 				if args[2] and isNumber(args[2]) then
 					distance = args[2]
 				end
@@ -8582,7 +8582,7 @@ addcmd('loopbring',{},function(args, speaker)
 						if Players:FindFirstChild(v) then
 							pchar = Players[v].Character
 							if pchar~= nil and Players[v].Character ~= nil and getRoot(pchar) and speaker.Character ~= nil and getRoot(speaker.Character) then
-								getRoot(pchar).CFrame = getRoot(speaker.Character).CFrame + Vector3.new(distance,1,0)
+								getRoot(pchar).CFrame = getRoot(speaker.Character).CFrame
 							end
 							wait(lDelay)
 						else 
@@ -9957,7 +9957,7 @@ addcmd('loopgoto',{},function(args, speaker)
 			wait(.1)
 		end
 		loopgoto = Players[v]
-		local distance = 0
+		local distance = 3
 		if args[2] and isNumber(args[2]) then
 			distance = args[2]
 		end
@@ -9968,7 +9968,7 @@ addcmd('loopgoto',{},function(args, speaker)
 		repeat
 			if Players:FindFirstChild(v) then
 				if Players[v].Character ~= nil then
-					getRoot(speaker.Character).CFrame = getRoot(Players[v].Character).CFrame + Vector3.new(0,0,0)
+					getRoot(speaker.Character).CFrame = getRoot(Players[v].Character).CFrame
 				end
 				wait(lDelay)
 			else
